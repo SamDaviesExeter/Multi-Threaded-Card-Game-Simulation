@@ -12,6 +12,7 @@ java -cp out CardGame
 
 Compile the tests (Windows PowerShell):
 javac -cp "lib/junit-platform-console-standalone-1.11.4.jar;out" -d out test/*.java
+
 use a : instead of ; if on mac
 
 Run the tests:
