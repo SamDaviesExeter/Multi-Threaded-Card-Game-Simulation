@@ -166,7 +166,7 @@ public class CardGame {
 
         Files.createDirectories(outputDirectory);
 
-        // For Sam (note), needs to integrate and test with partner's Player and GameState classes, still 'placeholder'
+        // For Sam (note), need to verify the integration and test with partner's Player and GameState classes, still 'placeholder'
         GameState gameState = new GameState();
         List<Thread> threads = new ArrayList<>();
 
