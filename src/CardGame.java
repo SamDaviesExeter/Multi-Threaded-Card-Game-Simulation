@@ -166,7 +166,6 @@ public class CardGame {
 
         Files.createDirectories(outputDirectory);
 
-        // For Sam (note), need to verify the integration and test with partner's Player and GameState classes, still 'placeholder'
         GameState gameState = new GameState();
         List<Thread> threads = new ArrayList<>();
 
@@ -182,11 +181,21 @@ public class CardGame {
                     hands.get(i),
                     leftDeck,
                     rightDeck,
-                    gameState
+                    gameState,
+                    outputDirectory
             );
 
             Thread thread = new Thread(player, "Player-" + playerId);
             threads.add(thread);
+        }
+
+        // Claims an immediate win before any thread starts, so the other
+        // players never take a turn
+        for (int i = 0; i < playerCount; i++) {
+            if (Player.isWinningHand(hands.get(i))) {
+                gameState.tryDeclareWinner(i + 1);
+                break;
+            }
         }
 
         // Starts all player threads
