@@ -1,8 +1,6 @@
 out/
 bin/
 *.class
-cards.jar
-cardsTest.zip
 player*_output.txt
 deck*_output.txt
 .idea/
